@@ -9,5 +9,5 @@ CMD ["gns3server"]
 
 EXPOSE 3080
 
-VOLUME ["/opt/gns3/images","/opt/gns3/symbols","/opt/gns3/configs","/opt/gns3/projects"]
+VOLUME ["/root/GNS3/images","/root/GNS3/symbols","/root/GNS3/configs","/root/GNS3/projects"]
 
