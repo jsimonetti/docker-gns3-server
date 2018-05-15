@@ -1,13 +1,21 @@
 FROM alpine:edge
 
+# Install the magic wrapper.
+ADD ./start.sh /start.sh
+
 RUN sed -n "s/main/testing/p" /etc/apk/repositories >> /etc/apk/repositories && \
-    apk add --no-cache dynamips gns3-server qemu-img qemu-system-x86_64 ubridge vpcs && \
-    pip3 install idna>=2.0
+    mkdir -p /images /symbols /configs /projects /docker /root/GNS3 && \
+    ln -sf /images /root/GNS3/images && \
+    ln -sf /symbols /root/GNS3/symbols && \
+    ln -sf /configs /root/GNS3/configs && \
+    ln -sf /projects /root/GNS3/projects && \
+    ln -sf /docker /var/lib/docker && \
+    apk add --no-cache docker dynamips gns3-server qemu-img qemu-system-x86_64 ubridge vpcs && \
+    pip3 install idna
 
-
-CMD ["gns3server"]
+CMD [ "/start.sh" ]
 
 EXPOSE 3080
 
-VOLUME ["/root/GNS3/images","/root/GNS3/symbols","/root/GNS3/configs","/root/GNS3/projects"]
+VOLUME ["/images","/symbols","/configs","/projects","/docker"]
 
