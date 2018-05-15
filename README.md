@@ -14,6 +14,7 @@ docker run \
     -v <data path>/symbols:/symbols \
     -v <data path>/configs:/configs \
     -v <data path>/projects:/projects \
+    -v <data path>/docker:/docker \
     jsimonetti/gns3-docker:latest 
 ```
 
@@ -30,6 +31,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-v /symbols` - Path to symbols
 * `-v /configs` - Path to configs
 * `-v /projects` - Path to projects
+* `-v /docker` - Path to docker data
 
 It is based on alpine-linux edge, for shell access whilst the container is running do `docker exec -it gns3 /bin/sh`.
 
