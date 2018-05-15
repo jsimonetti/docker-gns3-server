@@ -1,15 +1,10 @@
 # jsimonetti/gns3-server
-[![](https://images.microbadger.com/badges/version/jsimonetti/gns3-server.svg)](https://microbadger.com/images/jsimonetti/gns3-server "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/jsimonetti/gns3-server.svg)](https://microbadger.com/images/jsimonetti/gns3-server "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/jsimonetti/gns3-server.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/jsimonetti/gns3-server.svg)][hub]
+[![](https://images.microbadger.com/badges/version/jsimonetti/gns3-server.svg)](https://microbadger.com/images/jsimonetti/gns3-server "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/jsimonetti/gns3-server.svg)](https://microbadger.com/images/jsimonetti/gns3-server "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/jsimonetti/gns3-server.svg)][![Docker Stars](https://img.shields.io/docker/stars/jsimonetti/gns3-server.svg)]
 
 
 ## Usage
 
 ```
-docker run --rm -d \
-	--name=gns3 \
-	-v <path to data>:/root/GNS3/config \
-	-p 5050:5050 \
-	jsimonetti/gns3-server
 docker run \
     --rm -d \
     --name gns3 \
