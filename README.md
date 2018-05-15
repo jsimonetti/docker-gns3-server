@@ -8,8 +8,7 @@
 docker run \
     --rm -d \
     --name gns3 \
-    --privileged --cap-add SYS_ADMIN \
-    -p 3080:3080 \
+    --net=host --privileged --cap-add SYS_ADMIN \
     -v <data path>/images:/images \
     -v <data path>/symbols:/symbols \
     -v <data path>/configs:/configs \
@@ -26,7 +25,6 @@ So -p 8080:80 would expose port 80 from inside the container to be accessible fr
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
 
 
-* `-p 3080` - the port(s)
 * `-v /images` - Path to imported appliance images
 * `-v /symbols` - Path to symbols
 * `-v /configs` - Path to configs
@@ -36,5 +34,9 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 It is based on alpine-linux edge, for shell access whilst the container is running do `docker exec -it gns3 /bin/sh`.
 
 ## Info
+
+This container works best when run priviledged and on a network other then dockers' default (host or macvtap for example).
+If you run on docker's default network you need to expose all ports used by gns3 and consoles yourself.
+
 
 * To monitor the logs of the container in realtime `docker logs -f gns3`.
