@@ -3,7 +3,7 @@ if [ "${CONFIG}x" == "x" ]; then
 	CONFIG=/data/config.ini
 fi
 
-if [ -z $CONFIG ]; then
+if [ ! -e $CONFIG ]; then
 	cp /config.ini /data
 fi
 
