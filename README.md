@@ -10,11 +10,7 @@ docker run \
     --name gns3 \
     --net=host --privileged \
     -e BRIDGE_ADDRESS="172.21.1.1/24" \
-    -v <data path>/images:/images \
-    -v <data path>/symbols:/symbols \
-    -v <data path>/configs:/configs \
-    -v <data path>/projects:/projects \
-    -v <data path>/docker:/docker \
+    -v <data path>:/data \
     jsimonetti/gns3-docker:latest 
 ```
 
@@ -26,11 +22,7 @@ So -p 8080:80 would expose port 80 from inside the container to be accessible fr
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
 
 
-* `-v /images` - Path to imported appliance images
-* `-v /symbols` - Path to symbols
-* `-v /configs` - Path to configs
-* `-v /projects` - Path to projects
-* `-v /docker` - Path to docker data
+* `-v /data` - Path to persistant data
 * `-e BRIDGE_ADDRESS="172.21.1.1/24"` - Configure the internal NAT network bridge for GNS3
 
 It is based on alpine-linux edge, for shell access whilst the container is running do `docker exec -it gns3 /bin/sh`.
