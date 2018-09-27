@@ -11,7 +11,7 @@ docker run \
     --net=host --privileged \
     -e BRIDGE_ADDRESS="172.21.1.1/24" \
     -v <data path>:/data \
-    jsimonetti/gns3-docker:latest 
+    jsimonetti/gns3-server:latest 
 ```
 
 ## Parameters
