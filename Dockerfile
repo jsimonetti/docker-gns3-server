@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM jsimonetti/alpine-edge:latest
 
 # Install the magic wrapper.
 ADD ./start.sh /start.sh
