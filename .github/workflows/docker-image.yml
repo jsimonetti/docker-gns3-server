@@ -2,9 +2,8 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - 'master'
 
 jobs:
 
@@ -13,7 +12,7 @@ jobs:
     steps:
       - name: Get Version
         run: |
-          echo "VERSION=$(cat ~/requirements.txt)|sed -e 's/gns3-server==//g')" >> $GITHUB_ENV
+          echo "VERSION=$(cat ~/requirements.txt|sed -e 's/gns3-server==//g')" >> $GITHUB_ENV
           echo "USER=${{ secrets.DOCKER_USERNAME }}" >> $GITHUB_ENV
           echo "REPO=gns3-server" >> $GITHUB_ENV
       - name: Set up Docker Buildx
