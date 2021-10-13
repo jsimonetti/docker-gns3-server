@@ -1,0 +1,12 @@
+{
+	"dnsmasq":"0",
+	"cpulimit":"0",
+	"docker":"0",
+	"dynamips":"0",
+	"qemu-img":"0",
+	"qemu-system-x86_64":"0",
+	"libcap":"0",
+	"ubridge":"0", 
+	"vpcs":"0",
+	"py3-pip":"0"
+}

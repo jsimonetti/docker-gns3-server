@@ -1,0 +1,27 @@
+name: Update dependencies
+on:
+  schedule:
+    - cron:  '0 10 * * *'
+  workflow_dispatch:
+jobs:
+  updates:
+    timeout-minutes: 10
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Update dependencies
+      run: |
+        sudo apt update
+        sudo bash update_dependencies.sh
+    - name: Create PR
+      uses: peter-evans/create-pull-request@v3
+      with:
+        commit-message: "chore(deps): update dependencies.json"
+        branch: features/update-dependencies
+        title: Update APK packages
+        body: Updated dependencies.json
+        delete-branch: true
+        labels: dependencies
+
