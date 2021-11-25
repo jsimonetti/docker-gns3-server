@@ -1,12 +1,12 @@
 {
     "cpulimit": "0.2-r0",
-    "dnsmasq": "2.85-r2",
+    "dnsmasq": "2.86-r0",
     "docker": "20.10.11-r0",
     "dynamips": "0.2.21-r1",
-    "libcap": "2.50-r0",
+    "libcap": "2.61-r0",
     "py3-pip": "20.3.4-r1",
-    "qemu-img": "6.0.0-r5",
-    "qemu-system-x86_64": "6.0.0-r5",
+    "qemu-img": "6.1.0-r1",
+    "qemu-system-x86_64": "6.1.0-r1",
     "ubridge": "0.9.18-r0",
-    "vpcs": "0.8.1-r0"
+    "vpcs": "0.8.2-r0"
 }
