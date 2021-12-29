@@ -5,8 +5,8 @@
     "dynamips": "0.2.21-r1",
     "libcap": "2.61-r0",
     "py3-pip": "20.3.4-r1",
-    "qemu-img": "6.1.0-r1",
-    "qemu-system-x86_64": "6.1.0-r1",
+    "qemu-img": "6.1.0-r2",
+    "qemu-system-x86_64": "6.1.0-r2",
     "ubridge": "0.9.18-r0",
     "vpcs": "0.8.2-r0"
 }
