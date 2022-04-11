@@ -1,6 +1,6 @@
 {
     "cpulimit": "0.2-r0",
-    "dnsmasq": "2.86-r0",
+    "dnsmasq": "2.86-r1",
     "docker": "20.10.14-r0",
     "dynamips": "0.2.21-r1",
     "libcap": "2.61-r0",
