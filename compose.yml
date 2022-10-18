@@ -1,0 +1,7 @@
+services:
+  gns3:
+    image: amitie10g/gns3-server
+    privileged: true
+    network_mode: host
+    volumes:
+      - .:/data
