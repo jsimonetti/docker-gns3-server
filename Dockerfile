@@ -4,7 +4,6 @@ FROM alpine:3
 ARG GNS3_VERS=2.2.34
 ADD ./start.sh /start.sh
 ADD ./config.ini /config.ini
-ADD ./requirements.txt /requirements.txt
 COPY dependencies.json /tmp/dependencies.json
 
 RUN mkdir /data && \
