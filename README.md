@@ -1,4 +1,4 @@
-# jsimonetti/gns3-server
+# amitie10g/gns3-server
 *Forked from jsimonetti/gns3-server*
 
 [![](https://images.microbadger.com/badges/version/jsimonetti/gns3-server.svg)](https://microbadger.com/images/jsimonetti/gns3-server "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/jsimonetti/gns3-server.svg)](https://microbadger.com/images/jsimonetti/gns3-server "Get your own image badge on microbadger.com")[![](https://img.shields.io/docker/pulls/jsimonetti/gns3-server.svg)]()[![](https://img.shields.io/docker/stars/jsimonetti/gns3-server.svg)]()
@@ -12,7 +12,7 @@ By default, this uses the network mode ``host`` (recommended). You can use the d
 The ``privileged``flag is required for properly setup TUN/TAP devices.
 
 ### Docker Compose
-Place ``compose.yml`` in the root directory you want to store the project, Then, ``run docker compose up -d``. Get the container IP address name by running ``docker exec <container name> ip address show docker0``; use it for building your network.
+Place ``compose.yml`` in the root directory you want to store the project, Then, ``run docker compose up -d``.
 
 ### Command line
 
