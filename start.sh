@@ -16,5 +16,3 @@ ip ad add ${BRIDGE_ADDRESS} dev virbr0
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 dnsmasq -i virbr0 -z -h --dhcp-range=172.21.1.10,172.21.1.250,4h
-dockerd --storage-driver=vfs --data-root=/data/docker/ &
-gns3server -A --config /data/config.ini
