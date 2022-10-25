@@ -6,8 +6,17 @@ COPY config/* /etc/supervisor/conf.d/
 COPY start.sh /usr/local/bin/start-gns3
 
 RUN mkdir /data && \
-    apk add --no-cache --virtual=build-dependencies jq gcc python3-dev musl-dev linux-headers \
-    && jq -r 'to_entries | .[] | .key + "=" + .value' /tmp/dependencies.json | xargs apk add --no-cache
+    apk add --no-cache --virtual=build-dependencies jq gcc python3-dev musl-dev linux-headers py3-pip && \
+    apk add \
+        cpulimit \
+        dnsmasq \
+        docker \
+        dynamips \
+        libcap \
+        qemu-img \
+        qemu-system-x86_64 \
+        ubridge \
+        vpcs
 
 FROM dependencies as required
 ARG GNS3_VERS=2.2.34
