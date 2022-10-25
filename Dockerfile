@@ -2,7 +2,7 @@ FROM amitie10g/alpine-supervisord AS dependencies
 
 ADD ./config.ini /config.ini
 COPY dependencies.json /tmp/dependencies.json
-COPY supervisord.conf /etc/supervisor/conf.d/gns3.conf
+COPY config/* /etc/supervisor/conf.d/
 COPY start.sh /usr/local/bin/start-gns3
 
 RUN mkdir /data && \
