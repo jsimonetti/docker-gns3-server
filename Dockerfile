@@ -3,6 +3,7 @@ FROM amitie10g/alpine-supervisord AS dependencies
 ADD ./config.ini /config.ini
 COPY dependencies.json /tmp/dependencies.json
 COPY supervisord.conf /etc/supervisor/conf.d/gns3.conf
+COPY start.sh /usr/local/bin/start-gns3
 
 RUN mkdir /data && \
     apk add --no-cache --virtual=build-dependencies jq gcc python3-dev musl-dev linux-headers \
