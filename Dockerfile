@@ -1,9 +1,8 @@
-FROM alpine:3 AS dependencies
+FROM amitie10g/alpine-supervisord AS dependencies
 
-# Install the magic wrapper.
-ADD ./start.sh /start.sh
 ADD ./config.ini /config.ini
 COPY dependencies.json /tmp/dependencies.json
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN mkdir /data && \
     apk add --no-cache --virtual=build-dependencies jq gcc python3-dev musl-dev linux-headers \
@@ -15,8 +14,6 @@ RUN pip install gns3-server==$GNS3_VERS
 
 FROM required as cleanup
 RUN apk del --purge build-dependencies
-
-CMD [ "/start.sh" ]
 
 WORKDIR /data
 
