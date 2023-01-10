@@ -1,4 +1,4 @@
-FROM alpine:3.17.0
+FROM alpine:3.17.1
 
 # Install the magic wrapper.
 ADD ./start.sh /start.sh
