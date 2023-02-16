@@ -8,5 +8,6 @@
     "qemu-img": "7.1.0-r7",
     "qemu-system-x86_64": "7.1.0-r7",
     "ubridge": "0.9.18-r1",
+    "util-linux": "2.38.1-r1",
     "vpcs": "0.8.2-r1"
 }
