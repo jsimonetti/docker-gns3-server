@@ -1,13 +1,13 @@
 {
-    "cpulimit": "0.2-r1",
-    "dnsmasq": "2.87-r2",
-    "docker": "20.10.24-r2",
-    "dynamips": "0.2.22-r1",
-    "libcap": "2.66-r0",
-    "py3-pip": "22.3.1-r1",
-    "qemu-img": "7.1.0-r7",
-    "qemu-system-x86_64": "7.1.0-r7",
+    "cpulimit": "0.2-r2",
+    "dnsmasq": "2.89-r5",
+    "docker": "23.0.6-r1",
+    "dynamips": "0.2.23-r1",
+    "libcap": "2.68-r2",
+    "py3-pip": "23.1.2-r0",
+    "qemu-img": "8.0.0-r2",
+    "qemu-system-x86_64": "8.0.0-r2",
     "ubridge": "0.9.18-r1",
-    "util-linux": "2.38.1-r1",
+    "util-linux": "2.38.1-r7",
     "vpcs": "0.8.2-r1"
 }
