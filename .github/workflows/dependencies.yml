@@ -6,15 +6,28 @@ on:
 jobs:
   updates:
     timeout-minutes: 10
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
+    - uses: jirutka/setup-alpine@v1
+      with:
+        branch: latest-stable
+        packages: >
+          python3
+          jq
+
     - name: Checkout
       uses: actions/checkout@v3
 
     - name: Update dependencies
       run: |
-        sudo apt update
-        sudo bash update_dependencies.sh
+        JSON=$( cat dependencies.json )
+        for PACKAGE in $( echo $JSON | jq -r 'keys | .[]' ); do
+          VERSION=$( apk list "$PACKAGE" | awk '{ print $1 }' | sed -e "s/^${PACKAGE}-//" )
+          JSON=$( echo $JSON | jq '.[$package] = $version' --arg package $PACKAGE --arg version $VERSION )
+        done
+        echo $JSON | python -m json.tool > dependencies.json
+      shell: alpine.sh --root {0}
+
     - name: Create PR
       uses: peter-evans/create-pull-request@v5
       with:
