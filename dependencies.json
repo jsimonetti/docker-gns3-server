@@ -3,7 +3,7 @@
     "dnsmasq": "2.89-r5",
     "docker": "23.0.6-r2",
     "dynamips": "0.2.23-r1",
-    "libcap": "2.68-r2",
+    "libcap": "2.69-r0",
     "py3-pip": "23.1.2-r0",
     "qemu-img": "8.0.0-r3",
     "qemu-system-x86_64": "8.0.0-r3",
