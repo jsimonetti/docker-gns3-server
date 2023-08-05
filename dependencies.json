@@ -1,7 +1,7 @@
 {
     "cpulimit": "0.2-r2",
     "dnsmasq": "2.89-r5",
-    "docker": "23.0.6-r3",
+    "docker": "23.0.6-r4",
     "dynamips": "0.2.23-r1",
     "libcap": "2.69-r0",
     "py3-pip": "23.1.2-r0",
