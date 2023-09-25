@@ -37,4 +37,5 @@ jobs:
         body: Updated dependencies.json
         delete-branch: true
         labels: dependencies
+        signoff: true
 
