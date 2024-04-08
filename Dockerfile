@@ -12,6 +12,8 @@ RUN mkdir /data && \
     && pip install -r /requirements.txt --break-system-packages \
     && apk del --purge build-dependencies
 
+RUN ln -s /bin/busybox /usr/lib/python3.11/site-packages/gns3server/compute/docker/resources/bin
+
 CMD [ "/start.sh" ]
 
 WORKDIR /data
