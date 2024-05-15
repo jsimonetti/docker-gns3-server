@@ -1,1 +1,1 @@
-gns3-server==2.2.46
+gns3-server==2.2.47
