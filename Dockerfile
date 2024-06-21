@@ -14,6 +14,9 @@ RUN mkdir /data && \
 
 CMD [ "/start.sh" ]
 
+# workaround for https://github.com/GNS3/gns3-server/issues/2367
+RUN ln -s /bin/busybox /usr/lib/python*/site-packages/gns3server/compute/docker/resources/bin
+
 WORKDIR /data
 
 VOLUME ["/data"]
