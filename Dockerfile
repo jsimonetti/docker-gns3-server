@@ -5,7 +5,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 ADD ./start.sh /start.sh
 ADD ./config.ini /config.ini
 ADD ./requirements.txt /requirements.txt
-COPY dependencies.json /tmp/dependencies.json
 
 RUN mkdir /data && \
 	apt update && apt install -y \
