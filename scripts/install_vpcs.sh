@@ -2,14 +2,14 @@
 
 set -e
 
-if [[ ! -d /tmp ]]; then
-  mkdir /tmp
-fi
+TMPDIR=$(mktemp -d)
+trap 'rm -rf "$TMPDIR"' EXIT
 
 pushd /tmp || exit
 
-git clone https://github.com/GNS3/vpcs/
-pushd ./vpcs/src || exit
+wget https://github.com/GNS3/vpcs/archive/refs/heads/master.tar.gz
+tar xvf vpcs-master.tar.gz
+pushd ./vpcs-master/src || exit
 
 ./mk.sh amd64
 mv ./vpcs /usr/bin/vpcs
