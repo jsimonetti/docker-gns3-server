@@ -7,7 +7,7 @@ trap 'rm -rf "$TMPDIR"' EXIT
 
 pushd /tmp || exit
 
-wget https://www.openssl.org/source/old/0.9.x/openssl-0.9.8zh.tar.gz -o openssl-0.9.8zh.tar.gz
+wget https://www.openssl.org/source/old/0.9.x/openssl-0.9.8zh.tar.gz -O openssl-0.9.8zh.tar.gz
 tar xvf openssl-0.9.8zh.tar.gz
 
 OPENSSL_DIR="/opt/openssl-0.9.8"
