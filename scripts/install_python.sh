@@ -6,7 +6,7 @@ trap 'rm -rf "$TMPDIR"' exit
 
 pushd /tmp || exit
 
-wget https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz
+wget https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz -o Python-3.11.9.tgz
 tar xf Python-3.11.9.tgz
 
 pushd ./Python-3.11.9 || exit

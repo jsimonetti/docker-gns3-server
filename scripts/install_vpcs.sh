@@ -7,8 +7,8 @@ trap 'rm -rf "$TMPDIR"' EXIT
 
 pushd /tmp || exit
 
-wget https://github.com/GNS3/vpcs/archive/refs/heads/master.tar.gz
-tar xvf vpcs-master.tar.gz
+wget https://github.com/GNS3/vpcs/archive/refs/heads/master.tar.gz -o vpcs.tar.gz
+tar xvf vpcs.tar.gz
 pushd ./vpcs-master/src || exit
 
 ./mk.sh amd64
