@@ -12,7 +12,7 @@ docker build -t joepasss/gns3-server "$DOCKER_DIR" &&
   docker run \
     --rm -d \
     --name gns3 \
-    --net=host --previleged \
+    --net=host --privileged \
     -e BRIDGE_ADDRESS="172.21.1.2/24" \
-    -v "$HOME/gns3-server":/data \
+    -v "$PRESERVE_DATA_DIR":/data \
     joepasss/gns3-server
