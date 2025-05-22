@@ -12,3 +12,7 @@
 
 * `-v /data` - Path to persistant data
 * `-e BRIDGE_ADDRESS="172.21.1.1/24"` - Configure the internal NAT network bridge for GNS3
+
+## TODO
+* add iourc generator
+* publish in dockerhub
