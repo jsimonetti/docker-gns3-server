@@ -11,11 +11,13 @@ tar xf Python-3.11.9.tgz
 
 pushd ./Python-3.11.9 || exit
 ./configure --prefix=/opt/python-3.11.9 --enable-optimizations --with-ensurepip=install
-make -j"$(nproc)"
+
+make clean
+make
 make install
 
 popd || exit
 popd || exit
 
 /opt/python-3.11.9/bin/python3 -m pip install --upgrade pip
-/opt/python-3.11.9/bin/pip3 install -r /requirement.txt
+/opt/python-3.11.9/bin/pip3 install -r /requirements.txt

@@ -19,8 +19,9 @@ fi
 
 pushd ./openssl-0.9.8zh || exit
 CC="gcc -m32" ./Configure linux-generic32 --prefix=/opt/openssl-0.9.8 shared
+
 make clean
-make -j"$(nproc)"
+make
 make install
 
 pushd /opt/openssl-0.9.8/lib || exit
