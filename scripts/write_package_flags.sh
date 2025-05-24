@@ -29,8 +29,14 @@ if [[ ! -f "$PACKAGE_ACCEPT_DIR/gns3" ]]; then
   touch "$PACKAGE_ACCEPT_DIR/gns3"
 fi
 
-# global use flag
+# global flag
 echo "USE=\"multilib\"" | tee -a /etc/portage/make.conf
+
+if grep -q '^MAKEOPTS=' /etc/portage/make.conf; then
+  sed -i 's/^MAKEOPTS=.*/MAKEOPTS="-j1"/' /etc/portage/make.conf
+else
+  echo "MAKEOPTS=\"-j1\"" | tee -a /etc/portage/make.conf
+fi
 
 # use flag
 printf "net-dns/dnsmasq script \nnet-libs/gnutls tools pkcs11\ndev-libs/openssl abi_x86_32\n" | tee -a "$PACKAGE_USE_DIR/gns3" >/dev/null

@@ -1,4 +1,4 @@
-FROM gentoo/stage3
+FROM gentoo/stage3 AS base
 
 ADD ./scripts/write_package_flags.sh	/scripts/write_package_flags.sh
 ADD ./scripts/start.sh								/scripts/start.sh
@@ -28,6 +28,8 @@ RUN emerge -vq \
 		net-misc/bridge-utils \
 		sys-libs/glibc
 
+FROM base AS deps
+
 # VPCS
 RUN /scripts/install_vpcs.sh
 
@@ -36,6 +38,8 @@ RUN /scripts/install_openssl.sh
 
 # install python & install gns3server
 RUN /scripts/install_python.sh
+
+FROM deps AS production
 
 WORKDIR /data
 VOLUME ["/data"]
