@@ -8,25 +8,27 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
-    - uses: jirutka/setup-alpine@v1
-      with:
-        branch: latest-stable
-        packages: >
-          python3
-          jq
-
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Download apk.static
+      run: |
+        wget -r -np -nH -A "apk-tools-static-*.apk" https://dl-cdn.alpinelinux.org/alpine/latest-stable/main/x86_64/
+        file=$(ls alpine/latest-stable/main/x86_64/apk-tools-static-*.apk | head -n 1)
+        mkdir $PWD/static
+        tar -xC $PWD/static/ -f $file
+        sudo $PWD/static/sbin/apk.static --arch x86_64 -X https://dl-cdn.alpinelinux.org/alpine/latest-stable/main/ -U --allow-untrusted --root / --initdb search apk-tools
+
+
     - name: Update dependencies
       run: |
+        ls -la $PWD/static/sbin/
         JSON=$( cat dependencies.json )
         for PACKAGE in $( echo $JSON | jq -r 'keys | .[]' ); do
-          VERSION=$( apk list "$PACKAGE" | awk '{ print $1 }' | sed -e "s/^${PACKAGE}-//" )
+          VERSION=$( $PWD/static/sbin/apk.static list "$PACKAGE" | awk '{ print $1 }' | sed -e "s/^${PACKAGE}-//" )
           JSON=$( echo $JSON | jq '.[$package] = $version' --arg package $PACKAGE --arg version $VERSION )
         done
         echo $JSON | python -m json.tool > dependencies.json
-      shell: alpine.sh --root {0}
 
     - name: Create PR
       uses: peter-evans/create-pull-request@v7
