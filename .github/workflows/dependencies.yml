@@ -29,7 +29,7 @@ jobs:
       shell: alpine.sh --root {0}
 
     - name: Create PR
-      uses: peter-evans/create-pull-request@v7
+      uses: peter-evans/create-pull-request@v8
       with:
         commit-message: "chore(deps): update dependencies.json"
         branch: features/update-dependencies
