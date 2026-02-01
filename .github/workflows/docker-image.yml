@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v4.1.7
+      - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # v4.1.7
       - name: Setup environment 
         run: |
           echo "VERSION=$(sed -e s/gns3-server==//g requirements.txt)" >> $GITHUB_ENV
